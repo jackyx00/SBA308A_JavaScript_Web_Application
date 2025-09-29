@@ -17,7 +17,7 @@ nav button {
   padding: 10px 20px;
   border: none;
   background: white;
-  color: blue;
+  color: royalblue;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -33,4 +33,38 @@ nav button:hover {
 
 .section.active {
   display: block;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.anime-card {
+  background: white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.anime-card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+button.add-btn {
+  margin-top: 5px;
+  background: royalblue;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button.add-btn:hover {
+  background: gold;
+  color: black;
 }

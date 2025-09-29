@@ -1,4 +1,4 @@
-// Jikan API
+// Jikan API (GET)
 const api = "https://api.jikan.moe/v4";
 
 // Local storage for follow and watchlist
@@ -27,3 +27,32 @@ document.querySelectorAll(".nav-btn").forEach(btn => {
   });
 });
 
+// Fetch Top Anime
+async function fetchTopAnime() {
+  let result = await axios.get(`${api}/top/anime?limit=6`);
+  displayAnime(result.data.data, "top-anime");
+}
+
+// Display Anime Cards
+function displayAnime(animeList, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+
+  animeList.forEach((anime) => {
+    let card = document.createElement("div");
+    card.className = "anime-card";
+    card.innerHTML = `
+      <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+      <h4>${anime.title}</h4>
+      <p>Score: ${anime.score || "N/A"}</p>
+      ${`
+        <button class="add-btn follow-btn">Follow</button>
+        <button class="add-btn watchlist-btn">Watchlist</button>
+      `
+      }
+    `;
+    container.appendChild(card);
+  });
+}
+
+fetchTopAnime();
