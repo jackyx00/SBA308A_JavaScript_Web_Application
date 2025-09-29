@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyAnimeList</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
     <header>
       <h1>Anime Dashboard</h1>
-      <nav id="top-menu">
-        <button>Top Anime</button>
-        <button>Seasonal Anime</button>
-        <button>Watch Calender</button>
-        <button>Watchlist</button>
+      <nav>
+        <button class="nav-btn top">Top Anime</button>
+        <button class="nav-btn season">Seasonal Anime</button>
+        <button class="nav-btn calendar">Calendar</button>
+        <button class="nav-btn watchlist">Watchlist</button>
       </nav>
     </header>
 
     <main>
-      <section>
+      <section class="section top active">
         <h2>Top Anime</h2>
+        <div id="top-anime" class="anime-grid"></div>
       </section>
-      <section>
+      <section class="section season">
         <h2>Seasonal Anime</h2>
       </section>
-      <section>
+      <section class="section calendar">
         <h2>Watch Calender</h2>
       </section>
-      <section>
+      <section class="section watchlist">
         <h2>Your Watchlist</h2>
       </section>
     </main>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
