@@ -1,4 +1,5 @@
 import { displayAnime, updateWatchlist } from "./display.js";
+import { searchByImage } from "./searchImg.js";
 // Jikan API (GET)
 const api = "https://api.jikan.moe/v4";
 
@@ -23,9 +24,6 @@ document.querySelectorAll(".nav-btn").forEach((btn) => {
         .querySelector(`.section.${sectionClass}`)
         .classList.add("active");
     }
-    if (sectionClass === "watchlist") {
-      updateWatchlist();
-    }
   });
 });
 
@@ -36,4 +34,13 @@ async function fetchTopAnime() {
   console.log(result.data.data);
 }
 
+// Upload Image for Trace Moe API search
+document.getElementById("searchImg-upload").addEventListener("change", (e) => {
+  if (e.target.files.length > 0) {
+    searchByImage(e.target.files[0]);
+  }
+});
+
 fetchTopAnime();
+updateWatchlist();
+
