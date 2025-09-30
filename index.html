@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyAnimeList</title>
+    <title>MyAnimeList (Jikan)</title>
     <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -15,6 +15,7 @@
         <button class="nav-btn season">Seasonal Anime</button>
         <button class="nav-btn calendar">Calendar</button>
         <button class="nav-btn watchlist">Watchlist</button>
+        <button class="nav-btn searchImg">Search by Image</button>
       </nav>
     </header>
 
@@ -32,6 +33,11 @@
       <section class="section watchlist">
         <h2>Your Watchlist</h2>
         <ul id="watchlist-list"></ul>
+      </section>
+      <section class="section searchImg">
+        <h2>Search by Image (Trace Moe)</h2>
+        <input type="file" id="searchImg-upload" accept="image/*" />
+        <div id="searchImg-results"></div>
       </section>
     </main>
 

@@ -1,8 +1,8 @@
 // Local storage for follow and watchlist
-let followed = JSON.parse(localStorage.getItem("followed")) || [];
+//let followed = JSON.parse(localStorage.getItem("followed")) || [];
 let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
-// Display Anime Cards in grid
+// Display Anime Cards in grid format
 export function displayAnime(animeList, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -45,7 +45,7 @@ export function displayAnime(animeList, containerId) {
 //   }
 // }
 
-// Add to Watchlist
+// Add to Watchlist Section
 function addToWatchlist(id, title) {
     const exists = watchlist.find((a) => a.mal_id === id);
     if (exists) {
@@ -61,13 +61,18 @@ function addToWatchlist(id, title) {
   }
 }
 
-// Update Watchlist Display
+// Update Watchlist Section
 export function updateWatchlist() {
   const list = document.getElementById("watchlist-list");
   list.innerHTML = "";
   watchlist.forEach((anime) => {
     let li = document.createElement("li");
     li.textContent = anime.title;
+    let btn = document.createElement("button");
+    btn.textContent = "❌";
+    btn.style.margin = "5px";
+    btn.onclick = () => removeWatchlist(anime.mal_id);
+    li.appendChild(btn);
     list.appendChild(li);
   });
 }
