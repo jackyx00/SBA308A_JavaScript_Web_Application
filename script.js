@@ -26,19 +26,25 @@ document.querySelectorAll(".nav-btn").forEach((btn) => {
     }
 
     if (sectionClass !== "searchImg") {
-        const resultsDiv = document.getElementById("searchImg-results");
-        const resultsInput = document.getElementById("searchImg-upload");
-        resultsDiv.innerHTML = "";
-        resultsInput.value = "";
-      }
+      const resultsDiv = document.getElementById("searchImg-results");
+      const resultsInput = document.getElementById("searchImg-upload");
+      resultsDiv.innerHTML = "";
+      resultsInput.value = "";
+    }
   });
 });
 
 // Fetch Top Anime for limit of 6 at the moment
 async function fetchTopAnime() {
-  let result = await axios.get(`${api}/top/anime?limit=6`);
-  displayAnime(result.data.data, "top-anime");
-  console.log(result.data.data);
+  try {
+    let result = await axios.get(`${api}/top/anime?limit=6`);
+    displayAnime(result.data.data, "top-anime");
+  } catch (e) {
+    console.error("Error fetching Top Anime:", e);
+    const section = document.getElementById("top-anime");
+    section.innerHTML =
+      "<p>Failed to load top hit anime. Please try again later.</p>";
+  }
 }
 
 // Upload Image for Trace Moe API search
@@ -50,4 +56,3 @@ document.getElementById("searchImg-upload").addEventListener("change", (e) => {
 
 fetchTopAnime();
 updateWatchlist();
-

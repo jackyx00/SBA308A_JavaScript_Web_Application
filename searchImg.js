@@ -34,10 +34,10 @@ export async function searchByImage(img) {
         resultsDiv.appendChild(div);
       }
     } else {
-      resultsDiv.innerHTML = "<p>No anime match found for this image</p>";
+      resultsDiv.innerHTML = "<p>No anime match found for this image.</p>";
     }
   } catch (e) {
     console.error("Trace Moe API error:", e);
-    resultsDiv.innerHTML = "<p>Error searching image. Please try again</p>";
+    resultsDiv.innerHTML = "<p>Error searching image. Please try again.</p>";
   }
 }

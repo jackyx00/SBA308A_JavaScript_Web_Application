@@ -22,6 +22,12 @@ export function displayAnime(animeList, containerId) {
         <button class="add-btn watchlist-btn">Watchlist</button>
       `}
     `;
+
+    /*  
+        Follow feature is similar to watchlist 
+        but it is to remind user when anime next episode comes out. 
+        Will try to complete the feature after due date.
+    */
     // Follow button for calender
     // const followBtn = card.querySelector(".follow-btn");
     // followBtn.addEventListener("click", () => {
@@ -49,13 +55,13 @@ export function displayAnime(animeList, containerId) {
 
 // Add to Watchlist Section
 function addToWatchlist(id, title) {
-    const exists = watchlist.find((a) => a.mal_id === id);
-    if (exists) {
-        alert(`${title} is already in your Watchlist!`);
-        return;
-    }
+  const exists = watchlist.find((a) => a.mal_id === id);
+  if (exists) {
+    alert(`${title} is already in your Watchlist!`);
+    return;
+  }
   if (!watchlist.find((a) => a.mal_id === id)) {
-    watchlist.push({mal_id: id, title});
+    watchlist.push({ mal_id: id, title });
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
     updateWatchlist();
     console.log(JSON.parse(localStorage.getItem("watchlist")));
@@ -78,3 +84,5 @@ export function updateWatchlist() {
     list.appendChild(li);
   });
 }
+
+// Remove
