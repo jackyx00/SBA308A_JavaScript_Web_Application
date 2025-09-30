@@ -1,3 +1,5 @@
+// Display all anime sections
+
 // Local storage for follow and watchlist
 //let followed = JSON.parse(localStorage.getItem("followed")) || [];
 let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];

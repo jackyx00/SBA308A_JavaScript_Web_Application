@@ -14,7 +14,7 @@ document.querySelectorAll(".nav-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     // Each button class matches a section
     const sectionClass = [...btn.classList].find((c) =>
-      ["top", "season", "calendar", "watchlist"].includes(c)
+      ["top", "season", "calendar", "watchlist", "searchImg"].includes(c)
     );
 
     if (sectionClass) {
