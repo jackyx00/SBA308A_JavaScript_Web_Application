@@ -24,6 +24,13 @@ document.querySelectorAll(".nav-btn").forEach((btn) => {
         .querySelector(`.section.${sectionClass}`)
         .classList.add("active");
     }
+
+    if (sectionClass !== "searchImg") {
+        const resultsDiv = document.getElementById("searchImg-results");
+        const resultsInput = document.getElementById("searchImg-upload");
+        resultsDiv.innerHTML = "";
+        resultsInput.value = "";
+      }
   });
 });
 
