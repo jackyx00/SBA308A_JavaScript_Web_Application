@@ -15,7 +15,6 @@ export async function searchByImage(img) {
     });
 
     resultsDiv.innerHTML = "";
-    console.log(data.data.result);
     if (data.data.result && data.data.result.length > 0) {
       for (let a of data.data.result.slice(0, 3)) {
         const similarity = (a.similarity * 100).toFixed(2);

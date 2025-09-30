@@ -16,7 +16,7 @@ export function displayAnime(animeList, containerId) {
     card.innerHTML = `
       <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
       <h4>${anime.title}</h4>
-      <p>Score: ${anime.score || "N/A"}</p>
+      <p>Rating: ${anime.score || "N/A"}</p>
       ${`
         <button class="add-btn follow-btn">Follow</button>
         <button class="add-btn watchlist-btn">Watchlist</button>
@@ -79,10 +79,15 @@ export function updateWatchlist() {
     let btn = document.createElement("button");
     btn.textContent = "❌";
     btn.style.margin = "5px";
-    btn.onclick = () => removeWatchlist(anime.mal_id);
+    btn.addEventListener("click", () => removeWatchlist(anime.mal_id));
     li.appendChild(btn);
     list.appendChild(li);
   });
 }
 
-// Remove
+// Remove from Watchlist Section
+function removeWatchlist(id) {
+  watchlist = watchlist.filter((a) => a.mal_id !== id);
+  localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  updateWatchlist();
+}
